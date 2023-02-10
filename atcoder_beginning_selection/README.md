@@ -10,4 +10,4 @@
   - Some Sums: あまり計算%と10除算を繰り返して総和計算
   - Card Game for Two: 単純に交互に最大数を足していけばいい. 総和計算には accumulate 関数が便利.
   - Kagami Mochi: ソートしてから順に値の変化がある箇所をカウント
-  - 
+  - Otoshidama: お札の分配パターンを総当り
