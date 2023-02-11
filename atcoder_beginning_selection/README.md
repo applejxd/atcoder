@@ -11,3 +11,5 @@
   - Card Game for Two: 単純に交互に最大数を足していけばいい. 総和計算には accumulate 関数が便利.
   - Kagami Mochi: ソートしてから順に値の変化がある箇所をカウント
   - Otoshidama: お札の分配パターンを総当り
+  - Hakuchumu: [正規表現](https://regex101.com/)正規表現を使う
+  - Traveling: (時間)-(移動量) が正 or 0. また差分量が2の倍数なら足踏みで帳尻が合う.

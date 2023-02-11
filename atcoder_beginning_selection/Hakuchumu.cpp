@@ -10,12 +10,11 @@ int main() {
     throw std::runtime_error("Input error!");
   }
 
-  std::vector<std::string> word_list{
-    "dream", "dreamer", "erase", "eraser"};
-
-  uint cursor=0;
-  while(1) {
-    if(cursor==)
+  std::regex re(R"(^(dream|dreamer|erase|eraser)*$)");
+  if (std::regex_match(S, re)) {
+    std::cout << "YES";
+  } else {
+    std::cout << "NO";
   }
 
   return 0;
