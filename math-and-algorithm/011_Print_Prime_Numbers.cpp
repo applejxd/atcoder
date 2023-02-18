@@ -6,6 +6,7 @@ int main() {
   int N;
   cin >> N;
 
+  // 単純に自身より低い素数で割れないか判定
   vector<int> primes{};
   for (int i = 2; i <= N; i++) {
     // 素数フラグ
