@@ -19,6 +19,8 @@
 - 010_Factorial: オーバーフローに注意(long long 型を使う)
 - 011_Print_Prime_Numbers: エラトステネスの篩. それ以外でも N<=3000 なので計算量は問題ない.
 - 012_Primality_Test: sqrt(N)まで割っていくだけ. 桁が多いので注意
+- 013_Divisor_Enumeration: N=i*(N/i)の分解でsqrt(N)まで探索
+- 014 - Factorization
 
 ### Tips
 
