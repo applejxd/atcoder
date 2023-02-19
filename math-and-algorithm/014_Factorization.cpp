@@ -5,24 +5,24 @@ using namespace std;
 /**
  * エラトステネスの篩
  */
-vector<int> soe(long long N) {
+vector<long long> soe(long long N) {
   // [0,N-1] -> [1,N]
   vector<bool> is_prime(N, true);
   is_prime.at(0) = false;
 
-  for (int sieve = 2; sieve <= sqrt(N); ++sieve) {
+  for (long long sieve = 2; sieve <= sqrt(N); ++sieve) {
     // 篩が素数でなければスキップ
     if (!is_prime.at(sieve - 1)) continue;
 
     // 篩をかける
-    for (int times = 2; times <= N / sieve; ++times) {
+    for (long long times = 2; times <= N / sieve; ++times) {
       is_prime.at(sieve * times - 1) = false;
     }
   }
 
-  vector<int> primes;
+  vector<long long> primes;
   // [1,N] -> [0,N-1]
-  for (int i = 0; i < N; i++) {
+  for (long long i = 0; i < N; i++) {
     if (is_prime.at(i)) {
       primes.push_back(i + 1);
     }
@@ -38,7 +38,7 @@ int main() {
   // 素数(因数)判定はsqrt(N) まで行えばいい
   const auto primes = soe(sqrt(N));
 
-  vector<int> factors;
+  vector<long long> factors;
   for (auto &&prime : primes) {
     while (fmod(N, prime) == 0) {
       factors.push_back(prime);
