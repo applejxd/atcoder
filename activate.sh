@@ -1,21 +1,27 @@
 #!/bin/bash
 
+# Anaconda のチェック
 if ! type "conda" >/dev/null 2>&1; then
   echo "conda is not exist."
   exit 1
 fi
 
+# 依存ライブラリインストール
 if ! grep -q "atcoder" <(conda env list); then
   conda env create --file environments.yml
 fi
 
+# Selenium 用ドライバインストール
 if [[ ! -e /usr/bin/chromedriver ]]; then
   sudo apt-get install -y chromium-chromedriver
 fi
 
+# 仮想環境有効化
 conda activate atcoder
+# サイトログイン
 oj login https://atcoder.jp/
 
+# WSL でブラウザを開く際のバグフィックス
 # cf. https://qiita.com/iwaiktos/items/33ab69a42c3a1cc35dfb#3init-4010-error-utilconnecttointeropserver300-connect-failed-2
 for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
   if [[ -e "/run/WSL/${i}_interop" ]]; then
@@ -23,6 +29,8 @@ for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
   fi
 done
 
+# コンパイル・チェック自動化. 追加引数使用可能.
+# ojt -> oj s で提出可能
 # cf. https://github.com/online-judge-tools/oj/blob/master/docs/getting-started.ja.md
 function ojt() {
   url=$1
