@@ -32,7 +32,9 @@
   - 018_Convenience_Store_1: 総当りせずに可能な組み合わせだけカウント. 買う数が2で固定なので500=100+400=200+300のパターンのみ.
   - 019_Choose_Cards_1: nC2 の計算
   - 020_Choose_Cards_2: 100C2 ~ 1e+8 で全探索でも OK. ただし `i<j<k<l<m` で探索.
-  - 021_Combination_Easy
+  - 021_Combination_Easy: 分子・分母毎に計算
+  - 022_Choose_Cards_3: 総当りだと(1e+5)^2なのでNG. 各数字が何回出たかカウントする. 1~50000 に対して対応する 50001~99999 がいくつあるか計算.
+  - 023_Dice_Expectation:
 
 ### Tips
 
