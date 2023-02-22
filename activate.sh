@@ -21,13 +21,15 @@ conda activate atcoder
 # サイトログイン
 oj login https://atcoder.jp/
 
-# WSL でブラウザを開く際のバグフィックス
-# cf. https://qiita.com/iwaiktos/items/33ab69a42c3a1cc35dfb#3init-4010-error-utilconnecttointeropserver300-connect-failed-2
-for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
-  if [[ -e "/run/WSL/${i}_interop" ]]; then
-    export WSL_INTEROP=/run/WSL/${i}_interop
-  fi
-done
+if [[ -f /proc/sys/fs/binfmt_misc/WSLInterop ]]; then
+  # WSL でブラウザを開く際のバグフィックス
+  # cf. https://qiita.com/iwaiktos/items/33ab69a42c3a1cc35dfb#3init-4010-error-utilconnecttointeropserver300-connect-failed-2
+  for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
+    if [[ -e "/run/WSL/${i}_interop" ]]; then
+      export WSL_INTEROP=/run/WSL/${i}_interop
+    fi
+  done
+fi
 
 # コンパイル・チェック自動化. 追加引数使用可能.
 # ojt -> oj s で提出可能
