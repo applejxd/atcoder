@@ -12,8 +12,13 @@ if ! grep -q "atcoder" <(conda env list); then
 fi
 
 # Selenium 用ドライバインストール
-if [[ ! -e /usr/bin/chromedriver ]]; then
-  sudo apt-get install -y chromium-chromedriver
+if ! type "chromedriver" >/dev/null 2>&1; then
+  if [[ -e /etc/lsb-release ]]; then
+    sudo apt-get install -y chromium-chromedriver
+  fi
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    brew install chromedriver
+  fi
 fi
 
 # 仮想環境有効化
