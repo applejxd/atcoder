@@ -17,7 +17,15 @@ if ! type "chromedriver" >/dev/null 2>&1; then
     sudo apt-get install -y chromium-chromedriver
   fi
   if [[ "$OSTYPE" == "darwin"* ]]; then
+    # 別途実行許可を出す必要がある
+    # cf. https://qiita.com/apukasukabian/items/77832dd42e85ab7aa568
     brew install chromedriver
+  fi
+fi
+
+if ! type "gtime" >/dev/null 2>&1; then
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    brew install gnu-time
   fi
 fi
 

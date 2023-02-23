@@ -6,13 +6,13 @@ int main() {
   long long N;
   std::cin >> N;
 
-  std::vector<uint> B(N);
-  for (uint i = 0; i < N; i++) {
+  std::vector<unsigned int> B(N);
+  for (unsigned int i = 0; i < N; i++) {
     std::cin >> B.at(i);
   }
 
-  std::vector<uint> R(N);
-  for (uint i = 0; i < N; i++) {
+  std::vector<unsigned int> R(N);
+  for (unsigned int i = 0; i < N; i++) {
     std::cin >> R.at(i);
   }
 
