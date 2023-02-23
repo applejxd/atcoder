@@ -6,27 +6,29 @@ int main() {
   long long N;
   std::cin >> N;
 
-  std::vector<uint> B;
+  std::vector<uint> B(N);
   for (uint i = 0; i < N; i++) {
-    uint N;
-    std::cin >> N;
-    B.push_back(N);
+    std::cin >> B.at(i);
   }
 
-  std::vector<uint> R;
+  std::vector<uint> R(N);
   for (uint i = 0; i < N; i++) {
-    uint N;
-    std::cin >> N;
-    R.push_back(N);
+    std::cin >> R.at(i);
   }
 
-  double expect{0};
+  double expect_b{0};
   for (const auto& b : B) {
-    for (const auto& r : R) {
-      expect += (double)(b + r) / pow(double(N), 2);
-    }
+    expect_b += b;
   }
-  cout << expect;
+  expect_b /= (double)(N);
+
+  double expect_r{0};
+  for (const auto& r : R) {
+    expect_r += r;
+  }
+  expect_r /= (double)(N);
+
+  cout << expect_b + expect_r;
 
   return 0;
 }
