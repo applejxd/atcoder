@@ -55,7 +55,7 @@ function ojt() {
   fname=$(echo "$name" | awk -F/ '{print $NF}' | awk -F. '{print $1}')
   g++ -std=gnu++17 -Wall -Wextra -O2 "$name" -o "$fname"
   shift 2
-  oj test -N -c ./"$fname" "$@"
+  oj test -c ./"$fname" "$@"
 
   rm -f "$fname"
   rm -rf test

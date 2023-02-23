@@ -16,19 +16,15 @@ int main() {
     std::cin >> R.at(i);
   }
 
-  double expect_b{0};
+  double expect{0};
   for (const auto& b : B) {
-    expect_b += b;
+    expect += static_cast<double>(b) / N;
   }
-  expect_b /= (double)(N);
-
-  double expect_r{0};
   for (const auto& r : R) {
-    expect_r += r;
+    expect += static_cast<double>(r) / N;
   }
-  expect_r /= (double)(N);
 
-  cout << expect_b + expect_r;
+  cout << fixed << setprecision(7) << expect << endl;
 
   return 0;
 }
