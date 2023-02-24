@@ -5,6 +5,8 @@
 
 ## コメント
 
+### 2章
+
 - 基本計算
   - 001_Print_5+N: 入出力の練習
   - 002_Sum_of_3_Integer: 入出力の練習
@@ -22,6 +24,10 @@
   - 010_Factorial: オーバーフローに注意(long long 型を使う)
 - 素因数
   - 011_Print_Prime_Numbers: エラトステネスの篩. それ以外でも N<=3000 なので計算量は問題ない.
+
+### 3章
+
+- 素因数
   - 012_Primality_Test: sqrt(N)まで割っていくだけ. 桁が多いので注意
   - 013_Divisor_Enumeration: N=i*(N/i)の分解でsqrt(N)まで探索
   - 014_Factorization: オーバーフローに注意. 全て long long を使用. 篩は sqrt(N) までで十分
