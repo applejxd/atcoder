@@ -8,3 +8,14 @@
 ```bash
 source ./activate.sh
 ```
+
+ヘルパーの使い方
+
+```bash
+# 通常評価
+ojt $URL ./main.cpp
+# double 出力評価
+ojt $URL ./main.cpp -e 1e-6
+# 提出
+oj s $URL ./main.cpp
+```
