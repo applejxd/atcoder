@@ -73,6 +73,7 @@
         "cuchar": "cpp",
         "future": "cpp",
         "scoped_allocator": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "all": "cpp"
     }
 }
