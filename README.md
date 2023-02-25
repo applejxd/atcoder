@@ -19,3 +19,7 @@ ojt $URL ./main.cpp -e 1e-6
 # 提出
 oj s $URL ./main.cpp
 ```
+
+## 参考文献
+
+- [online-judge-tools/template-generator](https://github.com/online-judge-tools/template-generator/blob/master/README.ja.md)
