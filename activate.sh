@@ -60,3 +60,10 @@ function ojt() {
   rm -f "$fname"
   rm -rf test
 }
+
+function runcpp() {
+  fname=$(echo "$1" | awk -F/ '{print $NF}' | awk -F. '{print $1}')
+  g++ -std=gnu++17 -Wall -Wextra -O2 "$1" -o "$fname"
+  shift
+  ./"$fname" "$@"
+}

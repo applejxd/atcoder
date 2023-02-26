@@ -22,4 +22,5 @@ oj s $URL ./main.cpp
 
 ## 参考文献
 
+- [online-judge-tools/oj](https://github.com/online-judge-tools/oj/blob/master/docs/getting-started.ja.md)
 - [online-judge-tools/template-generator](https://github.com/online-judge-tools/template-generator/blob/master/README.ja.md)
