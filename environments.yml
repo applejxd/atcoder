@@ -9,5 +9,5 @@ dependencies:
   - pip>=20.3
   - pip:
     - online-judge-tools
-    - online-judge-template-generator
     - selenium
+    # - online-judge-template-generator
