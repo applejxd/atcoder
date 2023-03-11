@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # サイトログイン
 oj login https://atcoder.jp/
@@ -35,4 +35,17 @@ function runcpp() {
   g++ -std=gnu++17 -Wall -Wextra -O2 "$1" -o "$fname"
   shift
   ./"$fname" "$@"
+}
+alias -s {c,cc,cpp}='runcpp'
+
+# cd completion
+# cf. http://bit.ly/2ZtPPrN
+setopt auto_cd
+cdpath=(.. ~)
+function chpwd() {
+  if type "lsd" >/dev/null 2>&1; then
+    lsd
+  else
+    ls
+  fi
 }

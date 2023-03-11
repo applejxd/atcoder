@@ -5,7 +5,6 @@ ENV TZ=Asia/Tokyo
 
 RUN apt-get update && \
   apt-get install -y zsh time tzdata tree git curl
-RUN chsh -s /bin/zsh
 
 #-------------#
 # build tools #
@@ -28,10 +27,7 @@ ENV CPLUS_INCLUDE_PATH /lib/ac-library
 # support tools #
 #---------------#
 
-RUN pip install online-judge-tools==11.5.1 selenium
-# for GUI to Mac
-RUN apt-get install -y libx11-dev
-RUN apt-get install -y chromium-chromedriver
+RUN pip install online-judge-tools==11.5.1
 
 #-----------#
 # dev tools #
@@ -48,6 +44,13 @@ RUN code-server --install-extension ms-vscode.cpptools \
   --install-extension notskm.clang-tidy \
   --install-extension yzhang.markdown-all-in-one \
   --install-extension DavidAnson.vscode-markdownlint
+
+#-----#
+# zsh #
+#-----#
+
+RUN chsh -s /bin/zsh
+RUN apt-get install -y fzf
 
 RUN  apt-get clean && rm -rf /var/lib/apt/lists/*
 
