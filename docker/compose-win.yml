@@ -6,17 +6,24 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      # cf. https://docs.docker.jp/compose/environment-variables.html
+      args:
+        - UID=${UID}
+        - GID=${GID}
+        - USERNAME=${USERNAME}
+        - GROUPNAME=${GROUPNAME}
+    user: "${UID}:${GID}"
     tty: true
     restart: always
 
-    # # GUI for WSLg
-    # environment:
-    #   - DISPLAY=$DISPLAY
-    #   - WAYLAND_DISPLAY=$WAYLAND_DISPLAY
-    #   - XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
-    #   - PULSE_SERVER=$PULSE_SERVER
+    # cf. http://wiki.ros.org/docker/Tutorials/GUI#login_as_yourself
+    environment:
+      - DISPLAY=$DISPLAY
     volumes:
-      # - /tmp/.X11-unix:/tmp/.X11-unix
-      # - /mnt/wslg:/mnt/wslg
-      - ../src:/root/src
-      - ../config/activate.sh:/root/.zshrc
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
+      - /etc/sudoers.d:/etc/sudoers.d:ro
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ../src:/home/${USERNAME}/src
+      - ../config/activate.zsh:/home/${USERNAME}/.zshrc
