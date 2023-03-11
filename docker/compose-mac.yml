@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  atcoder:
+    image: local/atcoder:230311
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    restart: always
+
+    # GUI
+    environment:
+      - DISPLAY=host.docker.internal:0.0
+    volumes:
+      # - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/.Xauthority:/root/.Xauthority 
+      - ../src:/root/src
+      - ./activate.sh:/root/.zshrc

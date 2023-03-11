@@ -19,3 +19,4 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /mnt/wslg:/mnt/wslg
       - ../src:/root/src
+      - ./activate.sh:/root/.zshrc
