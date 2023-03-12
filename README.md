@@ -2,6 +2,13 @@
 
 ## 環境構築
 
+### VSCode devcontainer を使う場合
+
+.devcontainer の内容を OS に応じて書き換えて使用。
+.devcontainer/devcontainer.json の　dockerComposeFile を OS に応じて書き換え。
+
+### ローカル環境を使う場合
+
 1. Anaconda インストール
 2. 専用スクリプトでヘルパーツール導入
 
