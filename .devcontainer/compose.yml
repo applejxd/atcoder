@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      # Read variables from .env
       # cf. https://docs.docker.jp/compose/environment-variables.html
       args:
         - UID=${UID}
@@ -26,4 +27,5 @@ services:
       - /etc/sudoers.d:/etc/sudoers.d:ro
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ../src:/home/${USERNAME}/src
+      - ../.vscode:/home/${USERNAME}/.vscode
       - ../config/activate.zsh:/home/${USERNAME}/.zshrc

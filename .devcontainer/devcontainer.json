@@ -1,9 +1,20 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-	"dockerComposeFile": "../docker/compose-win.yml",
+	"dockerComposeFile": "compose.yml",
 	"service": "atcoder",
-	"workspaceFolder": "/root/src"
+	"containerEnv": {
+		"USERNAME": "applejxd"
+	},
+	"workspaceFolder": "/home/applejxd",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack"
+			]
+		}
+	}
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

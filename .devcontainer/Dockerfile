@@ -11,7 +11,7 @@ RUN apt-get update && \
 #-------------#
 
 RUN apt-get update && \
-  apt-get install -y gcc-9 g++-9 python3.8 python3-pip
+  apt-get install -y gcc-9 g++-9 gdb python3.8 python3-pip
 
 # make aliaces
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 30 && \
@@ -55,7 +55,8 @@ RUN apt-get install -y fzf
 # cleanup #
 #---------#
 
-RUN  apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && \ 
+  rm -rf /var/lib/apt/lists/*
 
 #------#
 # User #
@@ -69,6 +70,3 @@ RUN groupadd -g $GID $GROUPNAME && \
   useradd -m -s /bin/zsh -u $UID -g $GID $USERNAME
 USER $USERNAME
 WORKDIR /home/$USERNAME/
-
-
-
