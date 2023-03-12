@@ -26,6 +26,6 @@ services:
       - /etc/shadow:/etc/shadow:ro
       - /etc/sudoers.d:/etc/sudoers.d:ro
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ../src:/home/${USERNAME}/src
-      - ../.vscode:/home/${USERNAME}/.vscode
+      - ../src:/workspace/src
+      - ../.vscode:/workspace/.vscode
       - ../config/activate.zsh:/home/${USERNAME}/.zshrc

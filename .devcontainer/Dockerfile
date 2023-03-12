@@ -58,6 +58,9 @@ RUN apt-get install -y fzf
 RUN apt-get clean && \ 
   rm -rf /var/lib/apt/lists/*
 
+RUN mkdir /workspace
+WORKDIR /workspace
+
 #------#
 # User #
 #------#
@@ -69,4 +72,3 @@ ARG GID=1000
 RUN groupadd -g $GID $GROUPNAME && \
   useradd -m -s /bin/zsh -u $UID -g $GID $USERNAME
 USER $USERNAME
-WORKDIR /home/$USERNAME/
