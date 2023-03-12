@@ -10,5 +10,6 @@ services:
     restart: always
 
     volumes:
-      - ../src:/root/src
-      - ./activate.sh:/root/.zshrc
+      - ../src:/workspace/src
+      - ../.vscode:/workspace/.vscode
+      - ../config/activate.zsh:/root/.zshrc
