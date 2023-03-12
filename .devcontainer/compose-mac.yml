@@ -5,7 +5,7 @@ services:
     image: local/atcoder:230311
     build:
       context: .
-      dockerfile: mac.dockerfile
+      target: atcoder_base
     tty: true
     restart: always
 

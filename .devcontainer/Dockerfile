@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:20.04 AS atcoder_base
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
@@ -11,7 +11,9 @@ RUN apt-get update && \
 #-------------#
 
 RUN apt-get update && \
-  apt-get install -y gcc-9 g++-9 gdb python3.8 python3-pip
+  apt-get install -y gcc-9 g++-9 gdb libboost-all-dev
+RUN apt-get update && \
+  apt-get install -y python3.8 python3-pip
 
 # make aliaces
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 30 && \
@@ -64,6 +66,8 @@ WORKDIR /workspace
 #------#
 # User #
 #------#
+
+FROM atcoder_base AS atcoder_user
 
 ARG USERNAME=user
 ARG GROUPNAME=user

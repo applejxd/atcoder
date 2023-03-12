@@ -5,7 +5,7 @@ services:
     image: local/atcoder:230311
     build:
       context: .
-      dockerfile: ubuntu.dockerfile
+      target: atcoder_user
       # Read variables from .env
       # cf. https://docs.docker.jp/compose/environment-variables.html
       args:
