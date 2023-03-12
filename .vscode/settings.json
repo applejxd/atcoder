@@ -110,5 +110,10 @@
     "**/.vscode",
     "**/.vscode/**"
   ],
-  "C_Cpp_Runner.useAddressSanitizer": false
+  "C_Cpp_Runner.useAddressSanitizer": false,
+  // code-runner ctrl+alt+n
+  "code-runner.runInTerminal": true,
+  "code-runner.executorMap": {
+    "cpp": "cd $dir && g++ -std=gnu++17 -Wall -Wextra -I . -g $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+  },
 }
