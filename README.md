@@ -4,7 +4,11 @@
 
 ### VSCode devcontainer を使う場合
 
-.devcontainer の内容を OS に応じて書き換えて使用。
+[Docker for Windows/Mac と Docker Engine (Ubuntu) で owner の扱いが異なる。](https://qiita.com/yohm/items/047b2e68d008ebb0f001)
+Docker for Windows/Mac は自動的にホストのユーザとコンテナの root を切り替えるが、
+[Docker Engine (Ubuntu) は手動でホストのユーザ設定を作成・マウントする必要がある。](http://wiki.ros.org/docker/Tutorials/GUI#login_as_yourself)
+
+そのため .devcontainer の内容を OS に応じて書き換えて使用。
 .devcontainer/devcontainer.json の　dockerComposeFile を OS に応じて書き換え。
 
 ### ローカル環境を使う場合
