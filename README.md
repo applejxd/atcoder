@@ -8,8 +8,8 @@
 Docker for Windows/Mac は自動的にホストのユーザとコンテナの root を切り替えるが、
 [Docker Engine (Ubuntu) は手動でホストのユーザ設定を作成・マウントする必要がある。](http://wiki.ros.org/docker/Tutorials/GUI#login_as_yourself)
 
-そのため .devcontainer の内容を OS に応じて書き換えて使用。
-.devcontainer/devcontainer.json の　dockerComposeFile を OS に応じて書き換え。
+そのため Ubuntu で使用する場合は .devcontainer の内容を書き換えて使用。
+.devcontainer/devcontainer.json の　dockerComposeFile を compose-ubuntu.yml に変更。
 
 ### ローカル環境を使う場合
 

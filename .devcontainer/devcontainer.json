@@ -2,8 +2,8 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
 	"name": "atcoder",
-	"dockerComposeFile": "compose-ubuntu.yml",
-	// "dockerComposeFile": "compose-mac.yml",
+	"dockerComposeFile": "compose.yml",
+	// "dockerComposeFile": "compose-ubuntu.yml",
 	"service": "atcoder",
 	"workspaceFolder": "/workspace",
 	"customizations": {
