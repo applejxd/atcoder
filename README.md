@@ -33,5 +33,7 @@ oj s $URL ./main.cpp
 
 ## 参考文献
 
+- [AtCoder Clans](https://kato-hiro.github.io/AtCoderClans/)
+- [AtCoder Problems](https://kenkoooo.com/atcoder/#/table/)
 - [online-judge-tools/oj](https://github.com/online-judge-tools/oj/blob/master/docs/getting-started.ja.md)
 - [online-judge-tools/template-generator](https://github.com/online-judge-tools/template-generator/blob/master/README.ja.md)

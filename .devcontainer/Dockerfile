@@ -1,3 +1,4 @@
+# cf. https://qiita.com/hinamimi/items/b3dd159f956628cebdbb
 FROM ubuntu:20.04 AS atcoder_base
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -59,6 +60,8 @@ RUN apt-get install -y fzf
 
 RUN apt-get clean && \ 
   rm -rf /var/lib/apt/lists/*
+
+RUN chsh -s /bin/zsh
 
 RUN mkdir /workspace
 WORKDIR /workspace

@@ -28,4 +28,5 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ../src:/workspace/src
       - ../.vscode:/workspace/.vscode
+      - ../README.md:/workspace/README.md
       - ../config/activate.zsh:/home/${USERNAME}/.zshrc

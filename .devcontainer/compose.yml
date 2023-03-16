@@ -12,4 +12,5 @@ services:
     volumes:
       - ../src:/workspace/src
       - ../.vscode:/workspace/.vscode
+      - ../README.md:/workspace/README.md
       - ../config/activate.zsh:/root/.zshrc
