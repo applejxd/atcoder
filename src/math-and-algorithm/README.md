@@ -64,8 +64,7 @@
 - 034_Nearest_Points: 高々 N~2e+3 なので総当たりでもOK. 高速に計算するときは kd-tree を自前実装するか, boost の r-tree を利用
 - 035_Two_Circles: 中心の距離と半径を比較して包含関係を計算
 - 036_Colon: 角速度から丁寧に極座標を計算して距離を取る
-- 037_Intersection
-
-## メモ
-
-- 174, 182
+- 037_Intersection: 閉区間の判定にccw関数を利用。詳細は以下
+  - [線分が開区間の場合](http://www5d.biglobe.ne.jp/~tomoya03/shtml/algorithm/Intersection.htm):片方の線分を直線にして線分の端点が直線を挟んで別サイド同士になっているか判定。線分と直線を逆にして同様に判定してANDをとる。
+  - [線分が閉区間の場合](https://hcpc-hokudai.github.io/archive/geometry_004.pdf):ccw(counter clockwise)関数を利用。線分の端点が直線上に存在する場合もきちんと判定。
+- 038_How_Many_Guests: 累積和でデータを保持し差分を計算
