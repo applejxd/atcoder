@@ -30,7 +30,8 @@ ENV CPLUS_INCLUDE_PATH /lib/ac-library
 # support tools #
 #---------------#
 
-RUN pip install online-judge-tools==11.5.1
+RUN pip install online-judge-tools==11.5.1 \
+  online-judge-template-generator==4.8.1
 
 #-----------#
 # dev tools #
