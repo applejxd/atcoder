@@ -11,5 +11,3 @@ services:
 
     volumes:
       - ../:/workspace
-      - ../README.md:/workspace/README.md
-      - ../config/activate.zsh:/root/.zshrc

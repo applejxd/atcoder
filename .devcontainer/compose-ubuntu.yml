@@ -29,4 +29,3 @@ services:
       - ../src:/workspace/src
       - ../.vscode:/workspace/.vscode
       - ../README.md:/workspace/README.md
-      - ../config/activate.zsh:/home/${USERNAME}/.zshrc

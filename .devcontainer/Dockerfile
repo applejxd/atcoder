@@ -63,6 +63,7 @@ RUN apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 RUN chsh -s /bin/zsh
+COPY .zshrc /root
 
 RUN mkdir /workspace
 WORKDIR /workspace
@@ -83,3 +84,4 @@ ARG GID=1000
 RUN groupadd -g $GID $GROUPNAME
 RUN useradd -m -s /bin/zsh -u $UID -g $GID $USERNAME
 USER $USERNAME
+COPY .zshrc /home/${USERNAME}
