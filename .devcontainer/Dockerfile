@@ -11,8 +11,10 @@ RUN apt-get update && \
 # build tools #
 #-------------#
 
+# install build tools and libraries
 RUN apt-get update && \
   apt-get install -y gcc-9 g++-9 gdb libboost-all-dev
+# install python dev env
 RUN apt-get update && \
   apt-get install -y python3.8 python3-pip
 

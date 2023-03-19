@@ -6,8 +6,12 @@ services:
     build:
       context: .
       target: atcoder_base
+    # 標準入出力のデバイスを有効化. fg プロセス無しでも終了しない.
     tty: true
+    # ホスト側の再起動似合わせてコンテナも再起動
     restart: always
 
     volumes:
+      # リポジトリ全体をマウント.
+      # Dev Container で commit 可能. push はログイン情報が必要なので host 側で.
       - ../:/workspace
