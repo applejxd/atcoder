@@ -9,11 +9,19 @@ using ll = long long;
 using ull = unsigned long long;
 
 template <typename T>
-void dfs(const std::vector<std::vector<T>>& graph, T current_node,
+void dfs(const std::vector<std::vector<T>>& graph, T start_node,
          std::vector<bool>& visited) {
-  visited[current_node] = true;
-  for (const auto& neighbor : graph[current_node]) {
-    if (!visited[neighbor]) dfs(graph, neighbor, visited);
+  std::stack<T> targets;
+  visited[start_node] = true;
+  targets.push(start_node);
+  while (!targets.empty()) {
+    const auto current_node = targets.top();
+    targets.pop();
+    for (const auto& neighbor : graph[current_node]) {
+      if (visited[neighbor]) continue;
+      visited[neighbor] = true;
+      targets.push(neighbor);
+    }
   }
 }
 
