@@ -12,29 +12,36 @@ int main() {
   ll N, M;
   cin >> N >> M;
 
-  vector<ll> A(M), B(M);
-  vector<vector<ll>> graph(N);
+  std::vector<std::vector<long long>> graph(N);
+  std::vector<long long> A(M), B(M);
   for (long long i = 0; i < M; i++) {
-    cin >> A[i] >> B[i];
-    graph[A[i]].emplace_back(B[i]);
-    graph[B[i]].emplace_back(A[i]);
+    std::cin >> A[i] >> B[i];
+    graph[A[i] - 1].emplace_back(B[i] - 1);
+    graph[B[i] - 1].emplace_back(A[i] - 1);
   }
 
-  for (long long k = 0; k < N; k++) {
-    vector<ll> length(N, -1);
-    std::queue<ll> targets;
-    length[0] = 0;
-    targets.push(0);
-    while (!targets.empty()) {
-      const auto current_node = targets.front();
-      targets.pop();
-      for (const auto& neighbor : graph[current_node]) {
-        if (length[neighbor] >= 0) continue;
-        length[neighbor] = length[current_node] + 1;
-        targets.push(neighbor);
-      }
+  vector<ll> distances(N, -1);
+
+  std::queue<long long> targets;
+  std::vector<bool> visited(graph.size(), false);
+  long long start_node = 0;
+  visited[start_node] = true;
+  distances[start_node] = 0;
+  targets.push(start_node);
+  while (!targets.empty()) {
+    const auto current_node = targets.front();
+    targets.pop();
+    for (const auto& neighbor : graph[current_node]) {
+      if (visited[neighbor]) continue;
+      visited[neighbor] = true;
+      distances[neighbor] = distances[current_node] + 1;
+      targets.push(neighbor);
     }
   }
 
-    return 0;
+  for (long long i = 0; i < N; i++) {
+    cout << distances[i] << endl;
+  }
+
+  return 0;
 }
