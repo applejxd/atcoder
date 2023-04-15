@@ -1,5 +1,5 @@
 # cf. https://qiita.com/hinamimi/items/b3dd159f956628cebdbb
-FROM ubuntu:20.04 AS atcoder_base
+FROM amd64/ubuntu:20.04 AS atcoder_base
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
