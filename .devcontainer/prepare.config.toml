@@ -1,0 +1,7 @@
+contest_directory = "/workspace/contest/{contest_id}/{problem_id}"
+problem_directory = "."
+
+[templates]
+"main.py" = "main.cpp"
+"naive.py" = "main.cpp"
+"generate.py" = "generate.cpp"

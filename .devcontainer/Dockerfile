@@ -13,7 +13,7 @@ RUN apt-get update && \
 
 # install build tools and libraries
 RUN apt-get update && \
-  apt-get install -y gcc-9 g++-9 gdb libboost-all-dev
+  apt-get install -y gcc-9 g++-9 gdb clang-format libboost-all-dev
 # install python dev env
 RUN apt-get update && \
   apt-get install -y python3.8 python3-pip
@@ -87,3 +87,6 @@ RUN groupadd -g $GID $GROUPNAME
 RUN useradd -m -s /bin/zsh -u $UID -g $GID $USERNAME
 USER $USERNAME
 COPY .zshrc /home/${USERNAME}
+
+RUN mkdir /home/${USERNAME}/.config/online-judge-tools
+COPY prepare.config.toml /home/${USERNAME}/.config/online-judge-tools

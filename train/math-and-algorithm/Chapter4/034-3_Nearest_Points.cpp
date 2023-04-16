@@ -21,9 +21,9 @@ std::tuple<std::vector<Point>, std::vector<Point>> divide(
   std::sort(points.begin(), points.end(),
             [&](Point a, Point b) { return a[axis] < b[axis]; });
 
-  ull middle = points.size() / 2;
-  std::vector<Point> left(points.begin(), points.begin() + middle);
-  std::vector<Point> right(points.begin() + middle, points.end());
+  const ull center = points.size() / 2;
+  std::vector<Point> left(points.begin(), points.begin() + center);
+  std::vector<Point> right(points.begin() + center, points.end());
   return {left, right};
 }
 
@@ -31,8 +31,8 @@ double conquer(std::vector<Point>& x, uint axis) {
   if (x.size() == 2) return distance(x[0], x[1]);
   // 3点は総当り(3点以下を分割すると1点の部分が出るため3点で実施)
   if (x.size() == 3) {
-    double a = distance(x[0], x[1]), b = distance(x[1], x[2]),
-           c = distance(x[2], x[0]);
+    const double a = distance(x[0], x[1]), b = distance(x[1], x[2]),
+                 c = distance(x[2], x[0]);
     return min({a, b, c});
   }
 
@@ -48,16 +48,16 @@ double conquer(std::vector<Point>& x, uint axis) {
   {
     // 境界付近に最小距離候補が存在
     // => 少なくとも分割方向距離は暫定の最小距離未満
-    const double l = left.back()[axis], r = right.front()[axis];
+    ll l = left.back()[axis], r = right.front()[axis];
     if (abs(r - l) > ans) return ans;
 
     ll c = (r + l) / 2;
     std::vector<Point> ln, rn;
     // 境界に近い点を抽出
-    for (const auto& elem : left)
-      if (abs(elem[axis] - c) < ans) ln.push_back(elem);
-    for (const auto& elem : right)
-      if (abs(elem[axis] - c) < ans) rn.push_back(elem);
+    for (const auto& point : left)
+      if (abs(point[axis] - c) < ans) ln.push_back(point);
+    for (const auto& point : right)
+      if (abs(point[axis] - c) < ans) rn.push_back(point);
 
     // 総当り探索
     for (const auto& i : ln) {
@@ -71,13 +71,14 @@ double conquer(std::vector<Point>& x, uint axis) {
   return ans;
 }
 
+// TODO: 不正解未修正
 int main() {
-  long long N;
+  ull N;
   std::cin >> N;
 
-  std::vector<std::array<ll, 2>> points(N);
-  for (long long i = 0; i < N; i++) {
-    std::cin >> points.at(i).at(0) >> points.at(i).at(1);
+  std::vector<Point> points(N);
+  for (ull i = 0; i < N; i++) {
+    std::cin >> points[i][0] >> points[i][1];
   }
 
   double ans = conquer(points, 0);
