@@ -11,21 +11,24 @@ using uint = unsigned int;
 using ll = long long;
 using ull = unsigned long long;
 
-template <typename T>
-std::tuple<std::vector<T>, std::vector<T>> divide(const std::vector<T>& x) {
-  uint middle = x.size() / 2;
-
-  std::vector<T> a(middle), b(x.size() - middle);
-  std::copy(x.begin(), x.begin() + middle, a.begin());
-  std::copy(x.begin() + middle, x.end(), b.begin());
-
-  return {a, b};
+std::tuple<std::vector<ull>, std::vector<ull>> divide(
+    const std::vector<ull>& x) {
+  unsigned long long center = x.size() / 2;
+  std::vector<ull> l(x.begin(), x.begin() + center);
+  std::vector<ull> r(x.begin() + center, x.end());
+  return {l, r};
 }
 
-template <typename T>
-std::vector<T> synthesize(const std::vector<T>& a, const std::vector<T>& b) {
+vector<ull> conquer(const std::vector<ull>& list) {
+  if (list.size() <= 1) return list;
+
+  auto [a, b] = divide(list);
+  a = conquer(a);
+  b = conquer(b);
+
+  // merge operations
   unsigned long long c1 = 0, c2 = 0, idx = 0;
-  std::vector<T> ans(a.size() + b.size());
+  std::vector<ull> ans(a.size() + b.size());
   while (c1 < a.size() || c2 < b.size()) {
     if (c1 == a.size()) {
       ans[idx] = b[c2];
@@ -44,19 +47,7 @@ std::vector<T> synthesize(const std::vector<T>& a, const std::vector<T>& b) {
     }
     idx++;
   }
-
   return ans;
-}
-
-template <typename T>
-std::vector<T> conquer(const std::vector<T>& x) {
-  if (x.size() <= 1) return x;
-
-  std::vector<T> a, b;
-  std::tie(a, b) = divide(x);
-  a = conquer(a);
-  b = conquer(b);
-  return synthesize(a, b);
 }
 
 int main() {
