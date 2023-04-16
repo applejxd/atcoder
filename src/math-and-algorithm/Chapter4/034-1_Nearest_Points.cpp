@@ -1,3 +1,6 @@
+/**
+ * 総当たりの解法
+ */
 #include <bits/stdc++.h>
 
 using namespace std;

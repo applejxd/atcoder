@@ -74,7 +74,8 @@
     "future": "cpp",
     "scoped_allocator": "cpp",
     "valarray": "cpp",
-    "all": "cpp"
+    "all": "cpp",
+    "strstream": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

@@ -1,3 +1,6 @@
+/**
+ * boost:geometry を使った方法
+ */
 #include <bits/stdc++.h>
 
 #include <atcoder/all>
