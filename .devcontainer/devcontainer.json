@@ -3,7 +3,6 @@
 {
 	"name": "atcoder",
 	"dockerComposeFile": "compose.yml",
-	// "dockerComposeFile": "compose-ubuntu.yml",
 	"service": "atcoder",
 	"workspaceFolder": "/workspace",
 	"customizations": {
@@ -11,6 +10,7 @@
 			"extensions": [
 				"ms-vscode.cpptools",
 				"ms-vscode.cpptools-extension-pack",
+				"ms-azuretools.vscode-docker",
 				"formulahendry.code-runner"
 			]
 		}

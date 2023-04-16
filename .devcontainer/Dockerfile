@@ -1,5 +1,5 @@
 # cf. https://qiita.com/hinamimi/items/b3dd159f956628cebdbb
-FROM amd64/ubuntu:20.04 AS atcoder_base
+FROM amd64/ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
@@ -65,28 +65,10 @@ RUN apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 RUN chsh -s /bin/zsh
-COPY .zshrc /root
+COPY .zshrc /root/.zshrc
 
 RUN mkdir /workspace
 WORKDIR /workspace
 
-#------#
-# User #
-#------#
-
-FROM atcoder_base AS atcoder_user
-
-ARG USERNAME=user
-ARG GROUPNAME=user
-ARG UID=1000
-ARG GID=1000
-
-# RUN if ! grep -q $GID /etc/group; then groupadd -g $GID $GROUPNAME; fi
-# RUN if ! grep -q $UID /etc/group; then useradd -m -s /bin/zsh -u $UID -g $GID $USERNAME; fi
-RUN groupadd -g $GID $GROUPNAME
-RUN useradd -m -s /bin/zsh -u $UID -g $GID $USERNAME
-USER $USERNAME
-COPY .zshrc /home/${USERNAME}
-
-RUN mkdir /home/${USERNAME}/.config/online-judge-tools
-COPY prepare.config.toml /home/${USERNAME}/.config/online-judge-tools
+RUN mkdir -p /root/.config/online-judge-tools
+COPY prepare.config.toml /root/.config/online-judge-tools
