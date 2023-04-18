@@ -70,5 +70,5 @@ COPY .zshrc /root/.zshrc
 RUN mkdir /workspace
 WORKDIR /workspace
 
-RUN mkdir -p /root/.config/online-judge-tools
-COPY prepare.config.toml /root/.config/online-judge-tools
+RUN mkdir -p /root/.config
+COPY online-judge-tools/ /root/.config/online-judge-tools/
