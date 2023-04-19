@@ -93,3 +93,15 @@ precmd() {
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
+
+#---------#
+# Compile #
+#---------#
+
+function runcpp() {
+    fname=$(echo "$1" | awk -F/ '{print $NF}' | awk -F. '{print $1}')
+    g++ -std=gnu++17 -Wall -Wextra -O2 "$1" -o "$fname"
+    shift
+    ./"$fname" "$@"
+}
+alias -s {c,cc,cpp}='runcpp'
