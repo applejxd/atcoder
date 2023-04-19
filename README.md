@@ -23,12 +23,18 @@ source ./activate.sh
 ヘルパーの使い方
 
 ```bash
-# 通常評価
-ojt $URL ./main.cpp
+# 問題 DL
+ojd $URL
+# テストケース生成 (ojd の後)
+ojg
+# 評価
+ojt ./main.cpp
 # double 出力評価
-ojt $URL ./main.cpp -e 1e-6
+ojt ./main.cpp -e 1e-9
 # 提出
-oj s $URL ./main.cpp
+oj s ./main.cpp
+# テスト情報・バイナリ削除
+ojc
 ```
 
 ## テンプレート生成機能について
