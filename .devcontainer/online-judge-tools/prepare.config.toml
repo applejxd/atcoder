@@ -3,5 +3,5 @@ problem_directory = "."
 
 [templates]
 "main.cpp" = "custom_main.cpp"
-"naive.py" = "main.py"
-"generate.py" = "generate.py"
+"naive.cpp" = "custom_main.cpp"
+"generate.cpp" = "custom_generate.cpp"

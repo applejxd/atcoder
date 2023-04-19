@@ -31,10 +31,19 @@ ojt $URL ./main.cpp -e 1e-6
 oj s $URL ./main.cpp
 ```
 
+## テンプレート生成機能について
+
+- [online-judge-tools/template-generator](https://github.com/online-judge-tools/template-generator/blob/master/README.ja.md)
+- テンプレートの文法は [Mako](https://www.makotemplates.org/)
+  - import 文には `<%! hoge %>`
+  - プログラム実行には `<% hoge %>`
+  - [簡単な説明](https://lab.hde.co.jp/2009/01/pythonmako.html)
+
 ## 参考文献
 
 - [AtCoder Clans](https://kato-hiro.github.io/AtCoderClans/)
 - [AtCoder Problems](https://kenkoooo.com/atcoder/#/table/)
 - [online-judge-tools/oj](https://github.com/online-judge-tools/oj/blob/master/docs/getting-started.ja.md)
-- [online-judge-tools/template-generator](https://github.com/online-judge-tools/template-generator/blob/master/README.ja.md)
+
 - [技プログラミングのソース置場](https://oraclesqlpuzzle.ninja-web.net/kyoupro/index.html)
+- [競プロ C++ イディオム FAQ](https://rsk0315.hatenablog.com/entry/2020/05/09/170315#stdcintienullptr)
