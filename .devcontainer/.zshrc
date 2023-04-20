@@ -33,7 +33,7 @@ function ojg() {
   g++ -std=gnu++17 -Wall -Wextra -O2 ./"$generate".cpp -o ./"$generate"
 
   # テストケース生成
-  oj g/i ./"$generate" -j$(nproc) --tle 5
+  oj g/i ./"$generate" -j$(nproc) --tle 5 -f %s.%e
   # ナイーブ手法で回答生成. 計算時間が長い場合はスキップ.
   oj g/o -c ./"$naive" -j$(nproc) --tle 5
 }
@@ -102,6 +102,6 @@ function runcpp() {
     fname=$(echo "$1" | awk -F/ '{print $NF}' | awk -F. '{print $1}')
     g++ -std=gnu++17 -Wall -Wextra -O2 "$1" -o "$fname"
     shift
-    ./"$fname" "$@"
+    gdb ./"$fname" < "$@"
 }
 alias -s {c,cc,cpp}='runcpp'

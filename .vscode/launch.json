@@ -2,6 +2,7 @@
   // IntelliSense を使用して利用可能な属性を学べます。
   // 既存の属性の説明をホバーして表示します。
   // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  // cf. https://daeudaeu.com/vscode-different-args/
   "version": "0.2.0",
   "configurations": [
     {
@@ -9,7 +10,9 @@
       "type": "cppdbg",
       "request": "launch",
       "program": "${fileDirname}/${fileBasenameNoExtension}",
-      "args": [],
+      "args": [
+        "<./test/${input:inputId}.in"
+      ],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
@@ -23,6 +26,29 @@
         },
       ],
       "preLaunchTask": "GCC Build"
+    },
+  ],
+  "inputs": [
+    {
+      "id": "inputString",
+      "type": "promptString",
+      "description": "引数とする文字列を入力",
+    },
+    {
+      "id": "selectString",
+      "type": "pickString",
+      "options": [
+        "runserver",
+        "migrate",
+        "startapp",
+      ],
+      "default": "migrate",
+      "description": "引数を選択してください"
+    },
+    {
+      "id": "inputId",
+      "type": "promptString",
+      "description": "テストIDを入力",
     },
   ]
 }
