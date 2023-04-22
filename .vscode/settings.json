@@ -76,7 +76,9 @@
     "scoped_allocator": "cpp",
     "valarray": "cpp",
     "all": "cpp",
-    "strstream": "cpp"
+    "strstream": "cpp",
+    "custom_generate.cpp": "mako",
+    "custom_main.cpp": "mako"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
