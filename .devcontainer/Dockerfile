@@ -57,18 +57,11 @@ RUN apt-get update && \
 # config #
 #--------#
 
+RUN chsh -s /bin/zsh
+COPY .zshrc /root/.zshrc
+
+RUN mkdir -p /root/.config
+COPY online-judge-tools/ /root/.config/online-judge-tools/
+
 RUN mkdir /workspace
-
-ENV USER=atcoder
-RUN useradd -m -s /bin/zsh $USER && chown -R $USER /workspace
-COPY .zshrc /home/$USER/.zshrc
-
-RUN mkdir -p /home/$USER/.config
-COPY online-judge-tools/ /home/$USER/.config/online-judge-tools/
-
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-USER atcoder
 WORKDIR /workspace
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
