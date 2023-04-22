@@ -53,3 +53,6 @@ ojc
 
 - [技プログラミングのソース置場](https://oraclesqlpuzzle.ninja-web.net/kyoupro/index.html)
 - [競プロ C++ イディオム FAQ](https://rsk0315.hatenablog.com/entry/2020/05/09/170315#stdcintienullptr)
+
+- [C++で問題を解くときにおすすめのコンパイルオプション](https://triple-four.hatenablog.com/entry/20210623/1624458051)
+- [競技プログラミングにおける個人的 C++ コーディングスタイル (2020)](https://kmyk.github.io/blog/blog/2020/10/25/coding-style-for-competitive-programming/)

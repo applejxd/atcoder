@@ -118,6 +118,7 @@
   // code-runner: Ctrl+Alt+N
   "code-runner.runInTerminal": true,
   "code-runner.executorMap": {
-    "cpp": "cd $dir && g++ -std=gnu++17 -Wall -Wextra -I . -g $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+    // "cpp": "cd $dir && g++ -std=gnu++17 -Wall -Wextra -I . -g $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+    "cpp": "cd $dir && g++ -std=gnu++17 -Wall -Wextra -Wshadow -Wfloat-equal -ftrapv -fstack-protector-all -fsanitize=address,undefined -I . -g $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
   },
 }
