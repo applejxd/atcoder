@@ -100,7 +100,9 @@ PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 
 function runcpp() {
     fname=$(echo "$1" | awk -F/ '{print $NF}' | awk -F. '{print $1}')
-    g++ -std=gnu++17 -Wall -Wextra -O2 "$1" -o "$fname"
+    g++ -std=gnu++17 -Wall -Wextra -Wshadow -Wfloat-equal \
+      -ftrapv -fstack-protector-all -fsanitize=address,undefined \
+      -O2 "$1" -o "$fname"
     shift
     gdb ./"$fname" < "$@"
 }

@@ -78,7 +78,14 @@
     "all": "cpp",
     "strstream": "cpp",
     "custom_generate.cpp": "mako",
-    "custom_main.cpp": "mako"
+    "custom_main.cpp": "mako",
+    "compare": "cpp",
+    "concepts": "cpp",
+    "coroutine": "cpp",
+    "numbers": "cpp",
+    "ranges": "cpp",
+    "span": "cpp",
+    "stop_token": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
