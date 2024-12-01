@@ -128,4 +128,12 @@
     // "cpp": "cd $dir && g++ -std=gnu++17 -Wall -Wextra -I . -g $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
     "cpp": "cd $dir && g++ -std=gnu++17 -Wall -Wextra -Wshadow -Wfloat-equal -ftrapv -fstack-protector-all -fsanitize=address,undefined -I . -g $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
   },
+  "python.autoComplete.extraPaths": [
+    "/opt/ros/humble/lib/python3.10/site-packages",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages"
+  ],
+  "python.analysis.extraPaths": [
+    "/opt/ros/humble/lib/python3.10/site-packages",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages"
+  ],
 }

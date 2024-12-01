@@ -2,6 +2,15 @@
 
 ## 環境構築
 
+### ローカル環境を使う場合
+
+```bash
+# 自動で venv 作成・有効化
+mise trust
+pip install -r requirements.txt
+npm install atcoder-cli
+```
+
 ### VSCode devcontainer を使う場合
 
 [Docker for Windows/Mac と Docker Engine (Ubuntu) で owner の扱いが異なる。](https://qiita.com/yohm/items/047b2e68d008ebb0f001)
@@ -11,30 +20,22 @@ Docker for Windows/Mac は自動的にホストのユーザとコンテナの ro
 そのため Ubuntu で使用する場合は .devcontainer の内容を書き換えて使用。
 .devcontainer/devcontainer.json の　dockerComposeFile を compose-ubuntu.yml に変更。
 
-### ローカル環境を使う場合
+## ヘルパーの使い方
 
-1. Anaconda インストール
-2. 専用スクリプトでヘルパーツール導入
-
-```bash
-source ./activate.sh
-```
-
-ヘルパーの使い方
+[設定ファイル](https://github.com/online-judge-tools/template-generator/blob/master/README.ja.md)は `~/.config/online-judge-tools` に。
 
 ```bash
-# 問題 DL
-ojd $URL
-# テストケース生成 (ojd の後)
-ojg
-# 評価
-ojt ./main.cpp
-# double 出力評価
-ojt ./main.cpp -e 1e-9
-# 提出
-oj s ./main.cpp
-# テスト情報・バイナリ削除
-ojc
+ojlogin # ログイン
+
+ojd $URL  # 問題 DL
+ojp $URL  # テンプレート作成
+ojg # テストケース生成 (ojd の後)
+
+ojt ./main.cpp  # 評価
+ojt ./main.cpp -e 1e-9  # double 出力評価
+
+oj s ./main.cpp # 提出
+ojc # テスト情報・バイナリ削除
 ```
 
 ## テンプレート生成機能について

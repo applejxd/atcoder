@@ -1,0 +1,10 @@
+[tools]
+python = "3.11"
+node = "23.3.0"
+
+[env]
+_.path = ["{{cwd}}/node_modules/.bin"]
+# see https://www2.kobe-u.ac.jp/~lerl2/l_cc_p_10.1.008/doc/main_cls/mergedProjects/bldaps_cls/common/bldaps_env_vars1_comm.htm
+CPLUS_INCLUDE_PATH = "{{cwd}}/third_party/ac-library:{{env.CPLUS_INCLUDE_PATH|default(value='')}}"
+# see https://mise.jdx.dev/lang/python.html#automatic-virtualenv-activation
+_.python.venv = { path = ".venv", create = true }

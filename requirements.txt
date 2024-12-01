@@ -1,0 +1,5 @@
+selenium
+# see https://github.com/online-judge-tools/oj
+online-judge-tools==11.5.1
+# see https://github.com/online-judge-tools/template-generator
+online-judge-template-generator==4.8.1
