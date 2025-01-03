@@ -5,6 +5,9 @@
 ### ローカル環境を使う場合
 
 ```bash
+# AtCoder の環境と揃える
+sudo apt-get install -y gcc-12
+
 # 自動で venv 作成・有効化
 mise trust
 pip install -r requirements.txt
@@ -37,6 +40,13 @@ ojt ./main.cpp -e 1e-9  # double 出力評価
 oj s ./main.cpp # 提出
 ojc # テスト情報・バイナリ削除
 ```
+
+## ディレクトリ構造
+
+- `.vscode`: AtCoder 向け VSCode 設定
+  - `extensions.json`: コンテスト向け拡張機能
+  - `cpp.code-snippets`: C++ スニペット集
+  - `settings.json`: コードランナー設定等
 
 ## テンプレート生成機能について
 
