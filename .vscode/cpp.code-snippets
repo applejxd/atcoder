@@ -1,0 +1,290 @@
+{
+	// Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	// Snippet Conversion Tool: https://migi.me/vsc_snippet/
+	"header": {
+		"prefix": "int main",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"#include <atcoder/all>",
+			"",
+			"using namespace std;",
+			"using namespace atcoder;",
+			"using uint = unsigned int;",
+			"using ll = long long;",
+			"using ull = unsigned long long;",
+			"",
+			"int main() {",
+			"  std::ios::sync_with_stdio(false);",
+			"  std::cin.tie(nullptr);",
+			"",
+			"  $0",
+			"",
+			"  return 0;",
+			"}"
+		],
+		"description": "Add include statement"
+	},
+	"for(int64_t)": {
+		"prefix": "for(int)",
+		"body": [
+			"for (int64_t ${1:i} = ${2:0}; $1 < (int64_t)(${3:N}); $1++)",
+		],
+		"description": "for by int"
+	},
+	"for(reverse)": {
+		"prefix": "for(reverse)",
+		"body": [
+			"for (int64_t ${1:i} = (int64_t)(${3:N})-1; $1 >= (int64_t)(${2:0}); $1--)",
+		],
+		"description": "reverse for by int"
+	},
+	"all(range)": {
+		"prefix": "all(range)",
+		"body": [
+			"::std::begin(${1:x}), ::std::end($1)",
+		],
+		"description": "all iterator range"
+	},
+	"for(iter)": {
+		"prefix": "for(iter)",
+		"body": [
+			"for (auto ${1:iter} = ${2:vec}.begin(); $1 != $2.end(); $1++) {",
+			"  $3",
+			"}"
+		],
+		"description": "for loop"
+	},
+	"for(const auto)": {
+		"prefix": "for(const auto)",
+		"body": [
+			"for (const auto& ${1:elem}: ${2:vec}) {",
+			"  $3",
+			"}"
+		],
+		"description": "for loop"
+	},
+	"for(auto)": {
+		"prefix": "for(auto)",
+		"body": [
+			"for (auto&& ${1:elem}: ${2:vec}) {",
+			"  $3",
+			"}"
+		],
+		"description": "for loop"
+	},
+	"for(matrix)": {
+		"prefix": "ffor",
+		"body": [
+			"for (${1:int64_t} ${2:i} = ${3:0}; $2 < (int64_t)(${4:N}); $2++) {",
+			"  for (${1:int64_t} ${5:j} = ${6:0}; $5 < (int64_t)(${7:N}); $5++) {",
+			"    $8",
+			"  }",
+			"}"
+		],
+		"description": "for loop"
+	},
+	"while": {
+		"prefix": "while",
+		"body": [
+			"while (${1:condition}) {",
+			"  $2",
+			"}"
+		],
+		"description": "while loop"
+	},
+	"if": {
+		"prefix": "if",
+		"body": [
+			"if (${1:condition}) {",
+			"  $2",
+			"}"
+		],
+		"description": "if statement"
+	},
+	"cin(int64_t)": {
+		"prefix": "cin(N)",
+		"body": [
+			"${1:int64_t} ${2:N};",
+			"std::cin >> $2;",
+			"",
+			"$3"
+		]
+	},
+	"cin(vector)": {
+		"prefix": "cin(vector)",
+		"body": [
+			"std::vector<${1:int64_t}> ${2:A}(${3:N});",
+			"for ($1 ${4:i} = 0; $4 < (int64_t)($3); $4++) {",
+			"  std::cin >> $2[$4];",
+			"}",
+			"",
+			"$5"
+		]
+	},
+	"cout(single)": {
+		"prefix": "cout(int)",
+		"body": [
+			"cout << ${2:ans} << endl;"
+		]
+	},
+	"cout(double)": {
+		"prefix": "cout(double)",
+		"body": [
+			"cout << fixed << setprecision(${1:9}) << ${2:ans} << endl;"
+		]
+	},
+	"cout(spaces)": {
+		"prefix": "cout(spaces)",
+		"body": [
+			"for (${1:int64_t} ${2:i} = ${3:0}; $2 < (int64_t)'${4:ans}.size()); $2++) {",
+			"  std::cout << $4[$2] << \" \";",
+			"}",
+			"cout << $4.back() << endl;"
+		]
+	},
+	"matrix": {
+		"prefix": "vvec",
+		"body": [
+			"auto matrix =",
+			"    std::vector<std::vector<${1:int64_t}>>(${2:N}, std::vector<${1:int64_t}>(${3:M}, ${4:0}));"
+		]
+	},
+	"template": {
+		"prefix": "temp",
+		"body": [
+			"template <typename T>"
+		]
+	},
+	"copy": {
+		"prefix": "copy",
+		"body": [
+			"std::vector<${1:T}> ${2:x}(${3:y}.size());",
+			"std::copy($3.begin(), $3.end(), $2.begin());"
+		]
+	},
+	"copy_if": {
+		"prefix": "copy_if",
+		"body": [
+			"auto end_iter =",
+			"  std::copy_if(${1:x}.begin(), $1.end(), ${2:y}.begin()",
+			"               [&](${2:T} elem){ return ${3:condition}; });"
+		]
+	},
+	"sort": {
+		"prefix": "sort",
+		"body": [
+			"std::sort(${1:x}.begin(), $1.end(),",
+			"          [&](${2:T} a, $2 b){ return ${3:a < b}; });"
+		],
+		"description": "std::sort with lambda"
+	},
+	"graph(lists)": {
+		"prefix": "graph(lists)",
+		"body": [
+			"std::vector<std::vector<int64_t>> ${1:graph}(${2:N});",
+			"std::vector<int64_t> ${3:A}(${5:M}), ${4:B}($5);",
+			"for (int64_t i = 0; i < (int64_t)($5); i++) {",
+			"  std::cin >> $3[i] >> $4[i];",
+			"  // from 1-indexed to 0-indexed",
+			"  $1[$3[i]-1].emplace_back($4[i]-1);",
+			"  $1[$4[i]-1].emplace_back($3[i]-1);",
+			"}"
+		],
+		"description": "Graph representation by lists"
+	},
+	"dfs(function)": {
+		"prefix": "dfs(function)",
+		"body": [
+			"template <typename T>",
+			"void dfs(const std::vector<std::vector<T>>& graph, T current_node,",
+			"         std::vector<bool>& visited) {",
+			"  visited[current_node] = true;",
+			"  for (const auto& neighbor : graph[current_node]) {",
+			"    if (!visited[neighbor]) dfs(graph, neighbor, visited);",
+			"  }",
+			"}",
+		],
+		"description": "Depth First Search (by recursive function)"
+	},
+	"dfs(routine)": {
+		"prefix": "dfs(routine)",
+		"body": [
+			"std::stack<int64_t> targets;",
+			"std::vector<bool> visited(${1:graph}.size(), false);",
+			"int64_t start_node = ${2:0};",
+			"visited[start_node] = true;",
+			"targets.push(start_node);",
+			"while (!targets.empty()) {",
+			"  const auto current_node = targets.top();",
+			"  targets.pop();",
+			"  for (const auto& neighbor : $1[current_node]) {",
+			"    if (visited[neighbor]) continue;",
+			"    visited[neighbor] = true;",
+			"    targets.push(neighbor);",
+			"    ${3:// operations}",
+			"  }",
+			"}",
+		],
+		"description": "Depth First Search (by stack)"
+	},
+	"bfs": {
+		"prefix": "bfs",
+		"body": [
+			"std::queue<int64_t> targets;",
+			"std::vector<bool> visited(${1:graph}.size(), false);",
+			"int64_t start_node = ${2:0};",
+			"visited[start_node] = true;",
+			"targets.push(start_node);",
+			"while (!targets.empty()) {",
+			"  const auto current_node = targets.front();",
+			"  targets.pop();",
+			"  for (const auto& neighbor : $1[current_node]) {",
+			"    if (visited[neighbor]) continue;",
+			"    visited[neighbor] = true;",
+			"    targets.push(neighbor);",
+			"    ${3:// operations}",
+			"  }",
+			"}",
+		],
+		"description": "Breadth First Search (by queue)"
+	},
+	"conquer": {
+		"prefix": "conquer",
+		"body": [
+			"std::tuple<std::vector<${1:DataType}>, std::vector<$1>> divide(const std::vector<$1>& x) {",
+			"  std::sort(x.begin(), x.end(), [&]($1 a, $1 b){ return a < b; });",
+			"",
+			"  int64_t center = x.size() / 2;",
+			"  std::vector<$1> l(x.begin(), x.begin() + center);",
+			"  std::vector<$1> r(x.begin() + center, x.end());",
+			"  return {l, r};",
+			"}",
+			"",
+			"${2:AnswerType} conquer(const std::vector<$1>& list) {",
+			"  if (list.size() <= 1) return list;",
+			"",
+			"  auto [left, right] = divide(list);",
+			"  auto x = conquer(left);",
+			"  auto y = conquer(right);",
+			"",
+			"  $2 ans;",
+			"  ${3:// merge operations}",
+			"",
+			"  return ans;",
+			"}",
+		],
+		"description": "divide-and-conquer method"
+	},
+}
