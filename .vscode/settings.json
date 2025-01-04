@@ -7,12 +7,7 @@
     // see https://github.com/formulahendry/vscode-code-runner
     "cpp": "cd $dir && g++-12 -std=gnu++20 -O2 -DONLINE_JUDGE -DATCODER -Wall -Wextra -mtune=native -march=native -fconstexpr-depth=2147483647 -fconstexpr-loop-limit=2147483647 -fconstexpr-ops-limit=2147483647 -I$workspaceRoot/third_party/ac-library -lboost_system -o a.out $fileName -lgmpxx -lgmp -I/usr/include/eigen3 && ./a.out"
   },
-  "python.autoComplete.extraPaths": [
-    "/opt/ros/humble/lib/python3.10/site-packages",
-    "/opt/ros/humble/local/lib/python3.10/dist-packages"
-  ],
-  "python.analysis.extraPaths": [
-    "/opt/ros/humble/lib/python3.10/site-packages",
-    "/opt/ros/humble/local/lib/python3.10/dist-packages"
-  ]
+  "files.associations": {
+    "dense": "cpp"
+  },
 }

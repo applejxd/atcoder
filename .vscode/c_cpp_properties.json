@@ -7,7 +7,9 @@
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
-        "${workspaceFolder}/**"
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/third_party/ac-library/**",
+        "/usr/include/eigen3/**"
       ],
       "intelliSenseMode": "linux-gcc-x64",
       "compilerPath": "/usr/bin/gcc",
