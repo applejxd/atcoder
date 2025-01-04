@@ -15,7 +15,8 @@ int main() {
   ull N, Q;
   std::cin >> N >> Q;
 
-  // 頂点数指定
+  // 連結判定のできる無向グラフ 
+  // Disjoint Set Union または Union-Find 木
   auto graph = dsu(N);
 
   ull t, u, v;
