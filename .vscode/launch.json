@@ -1,15 +1,11 @@
 {
-  // IntelliSense を使用して利用可能な属性を学べます。
-  // 既存の属性の説明をホバーして表示します。
-  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
-  // cf. https://daeudaeu.com/vscode-different-args/
   "version": "0.2.0",
   "configurations": [
     {
       "name": "C++ Debug (cin)",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "program": "${fileDirname}/a.out",
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
@@ -20,15 +16,34 @@
           "description": "Enable pretty-printing for gdb",
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
-        },
+        }
       ],
-      "preLaunchTask": "CheckBuild"
+      "preLaunchTask": "Debug (AtCoder)"
+    },
+    {
+      "name": "C++ Run (cin)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/a.out",
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "Release (AtCoder)"
     },
     {
       "name": "C++ Debug (File)",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "program": "${fileDirname}/a.out",
       "args": [
         "<./test/${input:inputId}.in"
       ],
@@ -42,16 +57,16 @@
           "description": "Enable pretty-printing for gdb",
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
-        },
+        }
       ],
-      "preLaunchTask": "CheckBuild"
+      "preLaunchTask": "Debug (AtCoder)"
     },
   ],
   "inputs": [
     {
       "id": "inputString",
       "type": "promptString",
-      "description": "引数とする文字列を入力",
+      "description": "引数とする文字列を入力"
     },
     {
       "id": "selectString",
@@ -59,7 +74,7 @@
       "options": [
         "runserver",
         "migrate",
-        "startapp",
+        "startapp"
       ],
       "default": "migrate",
       "description": "引数を選択してください"
@@ -67,7 +82,7 @@
     {
       "id": "inputId",
       "type": "promptString",
-      "description": "テストIDを入力",
-    },
+      "description": "テストIDを入力"
+    }
   ]
 }

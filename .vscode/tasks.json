@@ -2,48 +2,36 @@
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "AtCoderBuild",
-      "command": "/usr/bin/g++",
+      "label": "Debug (AtCoder)",
+      "command": "/usr/bin/g++-12",
+      // see https://atcoder.jp/contests/APG4b/rules?lang=ja
+      // see https://triple-four.hatenablog.com/entry/20210623/1624458051
       "args": [
-        "-fdiagnostics-color=always",
-        "-std=gnu++17",
-        "-Wall",
-        "-Wextra",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
-      ],
-      "options": {
-        "cwd": "${fileDirname}"
-      },
-      "problemMatcher": [
-        "$gcc"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "detail": "AtCoder のビルド"
-    },
-    {
-      "type": "cppbuild",
-      "label": "CheckBuild",
-      "command": "/usr/bin/g++",
-      "args": [
-        "-fdiagnostics-color=always",
-        "-std=gnu++17",
+        "-std=gnu++20",
         "-Wall",
         "-Wextra",
         "-Wshadow",
+        "-Wconversion",
         "-Wfloat-equal",
+        "-Wno-char-subscripts",
         "-ftrapv",
         "-fstack-protector-all",
         "-fsanitize=address,undefined",
+        "-fsanitize=address",
+        "-fsanitize=undefined",
+        "-fno-sanitize-recover",
+        "-fconstexpr-depth=2147483647",
+        "-fconstexpr-loop-limit=2147483647",
+        "-fconstexpr-ops-limit=2147483647",
+        "-I${workspaceFolder}/third_party/ac-library",
+        "-lboost_system",
         "-g",
-        "${file}",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        "a.out",
+        "${file}",
+        "-lgmpxx",
+        "-lgmp",
+        "-I/usr/include/eigen3"
       ],
       "options": {
         "cwd": "${fileDirname}"
@@ -55,8 +43,46 @@
         "kind": "build",
         "isDefault": true
       },
-      "detail": "チェック項目を増やしたビルド"
+      "detail": "デバッグ向けビルド"
     },
+    {
+      "type": "cppbuild",
+      "label": "Release (AtCoder)",
+      "command": "/usr/bin/g++-12",
+      // see https://atcoder.jp/contests/APG4b/rules?lang=ja
+      "args": [
+        "-std=gnu++20",
+        "-O2",
+        "-DONLINE_JUDGE",
+        "-DATCODER",
+        "-Wall",
+        "-Wextra",
+        "-mtune=native",
+        "-march=native",
+        "-fconstexpr-depth=2147483647",
+        "-fconstexpr-loop-limit=2147483647",
+        "-fconstexpr-ops-limit=2147483647",
+        "-I${workspaceFolder}/third_party/ac-library",
+        "-lboost_system",
+        "-o",
+        "a.out",
+        "${file}",
+        "-lgmpxx",
+        "-lgmp",
+        "-I/usr/include/eigen3"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "AtCoder 審査向けのビルド"
+    }
   ],
   "version": "2.0.0"
 }

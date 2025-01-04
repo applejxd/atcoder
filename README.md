@@ -5,8 +5,8 @@
 ### ローカル環境を使う場合
 
 ```bash
-# AtCoder の環境と揃える
-sudo apt-get install -y gcc-12
+# AtCoder の C++ コンパイル環境を揃える
+sudo apt-get install -y gdb g++-12 libboost-all-dev libgmp-dev libeigen3-dev
 
 # 自動で venv 作成・有効化
 mise trust
@@ -44,9 +44,11 @@ ojc # テスト情報・バイナリ削除
 ## ディレクトリ構造
 
 - `.vscode`: AtCoder 向け VSCode 設定
-  - `extensions.json`: コンテスト向け拡張機能
+  - `c_cpp_properties.json`: コンパイラ・インクルードパス設定
   - `cpp.code-snippets`: C++ スニペット集
+  - `extensions.json`: コンテスト向け拡張機能
   - `settings.json`: コードランナー設定等
+  - `tasks.json`: デバッグ・リリースビルド
 
 ## テンプレート生成機能について
 
